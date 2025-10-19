@@ -2,10 +2,10 @@
 ## Task Detail
 <h2>Regional distribution efficiency (stock levels vs. sales)</h2>
 
-• Sales by region
-• Stock levels by warehouse
-• Stock vs. sales efficiency ratio
-• Understocked regions
+• Sales by region<br/>
+• Stock levels by warehouse<br/>
+• Stock vs. sales efficiency ratio<br/>
+• Understocked regions<br/>
 
 ## Group Detail
 <p>Group No.: 13</p>
