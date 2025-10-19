@@ -792,28 +792,40 @@
       <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
       <Commands>
         <Command>
-          <Text>CALCULATE;    
+          <Text>CALCULATE;
 
--- Stock vs Sales Efficiency Ratio
-CREATE MEMBER CURRENTCUBE.[Measures].StockvsSalesEfficiencyRatio
- AS [Measures].[Quantity]/[Measures].[Quantity On Hand], 
-FORMAT_STRING = "Percent", 
-VISIBLE = 1;    
+-- ============================================
+-- 1. Stock vs Sales Efficiency Ratio (No Blanks)
+-- ============================================
+CREATE MEMBER CURRENTCUBE.[Measures].[StockvsSalesEfficiencyRatio]
+ AS 
+    IIF(
+        [Measures].[Quantity On Hand] = 0
+        OR [Measures].[Quantity On Hand] IS NULL
+        OR [Measures].[Quantity] IS NULL,
+        0,   -- Return 0 instead of NULL
+        [Measures].[Quantity] / [Measures].[Quantity On Hand]
+    ),
+ FORMAT_STRING = "Percent",
+ VISIBLE = 1;
 
--- Understocked Regions
-CREATE MEMBER CURRENTCUBE.[Measures].UnderstockedRegions
- AS IIF(
+-- ============================================
+-- 2. Understock Flag (No Blanks)
+-- ============================================
+CREATE MEMBER CURRENTCUBE.[Measures].[UnderstockFlag]
+ AS 
+    IIF(
         [Measures].[Quantity On Hand] IS NULL
         OR [Measures].[Target Stock Level] IS NULL,
-        NULL,
+        0,   -- Treat blanks as not understocked
         IIF(
             [Measures].[Quantity On Hand] &lt; [Measures].[Target Stock Level],
-            'Yes',
-            'No'
+            1,
+            0
         )
-    ), 
-FORMAT_STRING = "Standard", 
-VISIBLE = 1  ; </Text>
+    ),
+ FORMAT_STRING = "0",
+ VISIBLE = 1;</Text>
         </Command>
       </Commands>
     </MdxScript>
