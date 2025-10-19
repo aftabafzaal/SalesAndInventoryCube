@@ -17,11 +17,12 @@ Solution Details:
 
 
 ## Group Detail
-<p>Group No.: 13</p>
-<p>Sutdent 1:</p>
-<p>Name: Muhammad Aftab</p>
-<p>Roll No: CS-118/2025</p>
-<p>Student 2:</p>
-<p>Name: Ahsan Nawaz</p>
-<p>Roll No: CS-058/2024 </p>
+Group No.: 13<br/>
+Sutdent 1:<br/>
+Name: Muhammad Aftab<br/>
+Roll No: CS-118/2025<br/>
+<p></p>
+Student 2:<br/>
+Name: Ahsan Nawaz<br/>
+Roll No: CS-058/2024<br/>
 
