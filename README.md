@@ -7,6 +7,15 @@
 • Stock vs. sales efficiency ratio<br/>
 • Understocked regions<br/>
 
+
+Solution Details:
+
+1. SSAS is at root<br/>
+2. SSAS Database is in database folder 
+3. PowerBI file is in powerbi folder 
+4. Screenshot of dashboard is in Screenshot 
+
+
 ## Group Detail
 <p>Group No.: 13</p>
 <p>Sutdent 1:</p>
